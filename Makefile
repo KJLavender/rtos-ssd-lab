@@ -14,19 +14,22 @@ PORT    := $(KERNEL)/portable/GCC/ARM_CM3
 BUILD   := build/$(EX)-p$(PREEMPT)$(if $(VARIANT),-$(VARIANT))
 ELF     := $(BUILD)/$(EX).elf
 
+# Optional per-exercise settings: EX_SRCS, EX_CFLAGS
+-include $(EX)/build.mk
+
 CC      := arm-none-eabi-gcc
 SIZE    := arm-none-eabi-size
 
 SRCS := $(KERNEL)/tasks.c $(KERNEL)/list.c $(KERNEL)/queue.c \
         $(KERNEL)/timers.c $(KERNEL)/event_groups.c \
         $(KERNEL)/portable/MemMang/heap_4.c $(PORT)/port.c \
-        $(wildcard bsp/*.c) $(wildcard $(EX)/*.c)
+        $(wildcard bsp/*.c) $(wildcard $(EX)/*.c) $(EX_SRCS)
 
 CFLAGS := -mcpu=cortex-m3 -mthumb -std=gnu11 -O2 -g3 \
           -ffunction-sections -fdata-sections -ffreestanding \
           -Wall -Wextra -Wno-unused-parameter \
           -DconfigUSE_PREEMPTION=$(PREEMPT) $(if $(VARIANT),-D$(VARIANT)=1) \
-          -Ibsp -Ibsp/CMSIS -I$(KERNEL)/include -I$(PORT) -I$(EX)
+          -Ibsp -Ibsp/CMSIS -I$(KERNEL)/include -I$(PORT) -I$(EX) $(EX_CFLAGS)
 LDFLAGS := -T bsp/mps2_m3.ld -nostartfiles -specs=nano.specs -specs=nosys.specs \
            -Wl,--gc-sections -Wl,-Map=$(BUILD)/$(EX).map
 
@@ -66,10 +69,20 @@ results:
 	$(call save_run,EX=ex02_isr_queue VARIANT=BAD_ISR_PRIO,ex02_bad_isr_prio)
 	$(call save_run,EX=ex03_priority_inversion,ex03_priority_inversion)
 	python3 tools/timeline.py results/ex03_priority_inversion.txt > results/ex03_timeline.txt
+	$(call save_run,EX=ex04_mini_ssd,ex04_mini_ssd)
+
+# The FTL core on Linux with the firmware's geometry: sequential writes must
+# give WAF 1, random writes must read back correctly.
+ftl-test:
+	@mkdir -p build/host
+	gcc -std=c11 -O2 -Wall -Wextra -Iftl -DFTL_BLOCKS=128 -DFTL_PPB=64 \
+	    ftl/ftl_core.c ftl/nand_sim.c ftl/test/host_test.c -o build/host/host_test_128x64
+	./build/host/host_test_128x64 --workload=seq --op=0.25
+	./build/host/host_test_128x64 --workload=uniform --op=0.25
 
 clean:
 	rm -rf build
 
 -include $(OBJS:.o=.d)
 
-.PHONY: all run results clean
+.PHONY: all run results ftl-test clean

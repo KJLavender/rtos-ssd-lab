@@ -10,7 +10,9 @@
 #define configUSE_TIME_SLICING                  1
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
 #define configCPU_CLOCK_HZ                      25000000UL
+#ifndef configTICK_RATE_HZ
 #define configTICK_RATE_HZ                      1000      /* 1 tick = 1 ms */
+#endif
 #define configMAX_PRIORITIES                    8
 #define configMINIMAL_STACK_SIZE                256       /* words */
 #define configMAX_TASK_NAME_LEN                 12
@@ -24,6 +26,7 @@
 #define configUSE_MUTEXES                       1
 #define configUSE_COUNTING_SEMAPHORES           1
 #define configUSE_TASK_NOTIFICATIONS            1
+#define configTASK_NOTIFICATION_ARRAY_ENTRIES   2
 #define configQUEUE_REGISTRY_SIZE               0
 
 #define configUSE_TIMERS                        1

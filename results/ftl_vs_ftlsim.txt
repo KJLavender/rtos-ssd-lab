@@ -1,0 +1,22 @@
+geometry: 1024 blocks x 256 pages, greedy GC, threshold 3 free blocks
+
+1) same write sequence (uniform random, 4x capacity after fill)
+op     c_waf      ftlsim     diff   
+0.07   7.77288    7.77288    +0.00% 
+0.14   4.17441    4.17441    +0.00% 
+0.28   2.40311    2.40311    +0.00% 
+
+2) independent random generators
+workload op    seed  c_waf      ftlsim     diff   
+seq      0.07  1     1.00000    1.00000    +0.00% 
+seq      0.14  1     1.00000    1.00000    +0.00% 
+seq      0.28  1     1.00000    1.00000    +0.00% 
+uniform  0.07  1     7.86496    7.85947    +0.07% 
+uniform  0.07  2     7.85193    7.85793    -0.08% 
+uniform  0.07  3     7.85599    7.86469    -0.11% 
+uniform  0.14  1     4.26379    4.26253    +0.03% 
+uniform  0.14  2     4.25819    4.26526    -0.17% 
+uniform  0.14  3     4.26385    4.26379    +0.00% 
+uniform  0.28  1     2.48162    2.47997    +0.07% 
+uniform  0.28  2     2.47984    2.48160    -0.07% 
+uniform  0.28  3     2.48149    2.48361    -0.09% 

@@ -128,7 +128,7 @@ static void vformat(struct out *o, const char *fmt, va_list ap)
 
 void log_printf(const char *fmt, ...)
 {
-    char buf[160];
+    char buf[320];
     struct out o = { buf, buf + sizeof(buf) - 1 };
     va_list ap;
     va_start(ap, fmt);

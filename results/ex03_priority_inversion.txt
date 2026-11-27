@@ -1,10 +1,10 @@
 ex03 priority inversion: L holds the lock 10 ms, M burns 50 ms, H needs the lock
-binary_semaphore round 1: H waited 58213 us for the lock
-binary_semaphore round 2: H waited 58191 us for the lock
-binary_semaphore round 3: H waited 58191 us for the lock
-binary_semaphore round 4: H waited 58191 us for the lock
-binary_semaphore round 5: H waited 58191 us for the lock
-RESULT,ex03,binary_semaphore,avg_h_wait_us=58195,min_h_wait_us=58191,max_h_wait_us=58213
+binary_semaphore round 1: H waited 58212 us for the lock
+binary_semaphore round 2: H waited 58192 us for the lock
+binary_semaphore round 3: H waited 58192 us for the lock
+binary_semaphore round 4: H waited 58192 us for the lock
+binary_semaphore round 5: H waited 58192 us for the lock
+RESULT,ex03,binary_semaphore,avg_h_wait_us=58196,min_h_wait_us=58192,max_h_wait_us=58212
 TR,binary_semaphore,1,CTRL,4
 TR,binary_semaphore,14,L,1
 TM,binary_semaphore,21,L,L takes lock
@@ -25,32 +25,31 @@ TM,binary_semaphore,60230,H,H got lock
 TR,binary_semaphore,61245,CTRL,4
 TR,binary_semaphore,61257,H,3
 TR,binary_semaphore,61268,L,1
-TR,binary_semaphore,61276,CTRL,4
-mutex round 1: H waited 8114 us for the lock
-mutex round 2: H waited 8092 us for the lock
-mutex round 3: H waited 8092 us for the lock
-mutex round 4: H waited 8092 us for the lock
-mutex round 5: H waited 8092 us for the lock
-RESULT,ex03,mutex,avg_h_wait_us=8096,min_h_wait_us=8092,max_h_wait_us=8114
+TR,binary_semaphore,61277,CTRL,4
+mutex round 1: H waited 8110 us for the lock
+mutex round 2: H waited 8093 us for the lock
+mutex round 3: H waited 8093 us for the lock
+mutex round 4: H waited 8093 us for the lock
+mutex round 5: H waited 8093 us for the lock
+RESULT,ex03,mutex,avg_h_wait_us=8096,min_h_wait_us=8093,max_h_wait_us=8110
 TR,mutex,1,CTRL,4
 TR,mutex,14,L,1
-TR,mutex,20,L,1
-TM,mutex,26,L,L takes lock
-TR,mutex,1998,CTRL,4
-TR,mutex,2012,H,3
-TM,mutex,2016,H,H wants lock
-TR,mutex,2038,L,3
-TR,mutex,2998,CTRL,4
-TR,mutex,3013,L,3
-TM,mutex,10113,L,L gives lock
-TR,mutex,10125,H,3
-TM,mutex,10130,H,H got lock
-TR,mutex,11145,CTRL,4
-TR,mutex,11157,H,3
-TR,mutex,11168,M,2
-TM,mutex,11173,M,M starts
-TM,mutex,61248,M,M done
-TR,mutex,61257,CTRL,4
-TR,mutex,61269,M,2
-TR,mutex,61280,L,1
-TR,mutex,61288,CTRL,4
+TM,mutex,21,L,L takes lock
+TR,mutex,1996,CTRL,4
+TR,mutex,2009,H,3
+TM,mutex,2014,H,H wants lock
+TR,mutex,2035,L,3
+TR,mutex,2996,CTRL,4
+TR,mutex,3010,L,3
+TM,mutex,10108,L,L gives lock
+TR,mutex,10120,H,3
+TM,mutex,10125,H,H got lock
+TR,mutex,11140,CTRL,4
+TR,mutex,11153,H,3
+TR,mutex,11164,M,2
+TM,mutex,11168,M,M starts
+TM,mutex,61244,M,M done
+TR,mutex,61252,CTRL,4
+TR,mutex,61264,M,2
+TR,mutex,61275,L,1
+TR,mutex,61284,CTRL,4

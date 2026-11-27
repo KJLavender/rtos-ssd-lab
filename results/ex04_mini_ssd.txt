@@ -1,0 +1,34 @@
+ex04 mini SSD: 128 blocks x 64 pages, OP 25%, 6553 logical pages
+host: 1 command / 2000 us, 20% reads; NAND: read 100 us, program 500 us, erase 3000 us
+
+[burst GC, GC priority below CMD] 4000 commands in 7987 ms
+  writes 3211: avg 8966 us, p50 5950, p99 27209, p99.9 27209, max 27209 us
+  reads  789: avg 8008 us, p50 3550, p99 26850, p99.9 27409, max 27409 us
+RESULT,ex04,burst,gc_prio=below_cmd,write_avg_us=8966,write_p50_us=5950,write_p99_us=27209,write_p999_us=27209,write_max_us=27209,read_avg_us=8008,read_p99_us=26850,read_max_us=27409,read_errors=0,host_dropped=0
+  WAF 2.837, GC victims 142, foreground stalls 0, CPU idle 91%
+  checks: read errors 0, full scan mismatches 0, map problems 0, NAND rule violations 0
+RESULT,ex04_check,burst,gc_prio=below_cmd,waf_x1000=2837,fg_stalls=0,cpu_idle_pct=91,read_errors=0,scan_mismatches=0,map_problems=0,nand_violations=0
+
+[burst GC, GC priority above CMD] 4000 commands in 7994 ms
+  writes 3168: avg 9359 us, p50 6300, p99 28300, p99.9 28300, max 28894 us
+  reads  832: avg 8935 us, p50 5400, p99 27900, p99.9 28494, max 28494 us
+RESULT,ex04,burst,gc_prio=above_cmd,write_avg_us=9359,write_p50_us=6300,write_p99_us=28300,write_p999_us=28300,write_max_us=28894,read_avg_us=8935,read_p99_us=27900,read_max_us=28494,read_errors=0,host_dropped=0
+  WAF 2.830, GC victims 140, foreground stalls 0, CPU idle 91%
+  checks: read errors 0, full scan mismatches 0, map problems 0, NAND rule violations 0
+RESULT,ex04_check,burst,gc_prio=above_cmd,waf_x1000=2830,fg_stalls=0,cpu_idle_pct=91,read_errors=0,scan_mismatches=0,map_problems=0,nand_violations=0
+
+[paced GC, GC priority below CMD] 4000 commands in 7999 ms
+  writes 3204: avg 1119 us, p50 600, p99 4100, p99.9 5100, max 6779 us
+  reads  796: avg 707 us, p50 200, p99 4100, p99.9 5580, max 5580 us
+RESULT,ex04,paced,gc_prio=below_cmd,write_avg_us=1119,write_p50_us=600,write_p99_us=4100,write_p999_us=5100,write_max_us=6779,read_avg_us=707,read_p99_us=4100,read_max_us=5580,read_errors=0,host_dropped=0
+  WAF 3.161, GC victims 159, foreground stalls 0, CPU idle 89%
+  checks: read errors 0, full scan mismatches 0, map problems 0, NAND rule violations 0
+RESULT,ex04_check,paced,gc_prio=below_cmd,waf_x1000=3161,fg_stalls=0,cpu_idle_pct=89,read_errors=0,scan_mismatches=0,map_problems=0,nand_violations=0
+
+[paced GC, GC priority above CMD] 4000 commands in 7999 ms
+  writes 3195: avg 1232 us, p50 650, p99 4550, p99.9 5850, max 6824 us
+  reads  805: avg 791 us, p50 250, p99 4450, p99.9 5524, max 5524 us
+RESULT,ex04,paced,gc_prio=above_cmd,write_avg_us=1232,write_p50_us=650,write_p99_us=4550,write_p999_us=5850,write_max_us=6824,read_avg_us=791,read_p99_us=4450,read_max_us=5524,read_errors=0,host_dropped=0
+  WAF 3.169, GC victims 158, foreground stalls 0, CPU idle 89%
+  checks: read errors 0, full scan mismatches 0, map problems 0, NAND rule violations 0
+RESULT,ex04_check,paced,gc_prio=above_cmd,waf_x1000=3169,fg_stalls=0,cpu_idle_pct=89,read_errors=0,scan_mismatches=0,map_problems=0,nand_violations=0
