@@ -1,0 +1,61 @@
+ex01 preemption: scheduler is PREEMPTIVE
+  L running, 100 ms of work done
+  L running, 200 ms of work done
+  L running, 300 ms of work done
+  L running, 400 ms of work done
+H cuts in at tick 500: wake latency 7 us, L progress 497 -> 497 ms while H ran
+  L running, 500 ms of work done
+  L running, 600 ms of work done
+  L running, 700 ms of work done
+  L running, 800 ms of work done
+  L running, 900 ms of work done
+H cuts in at tick 1000: wake latency 7 us, L progress 993 -> 993 ms while H ran
+  L running, 1000 ms of work done
+  L running, 1100 ms of work done
+  L running, 1200 ms of work done
+  L running, 1300 ms of work done
+  L running, 1400 ms of work done
+H cuts in at tick 1500: wake latency 7 us, L progress 1489 -> 1489 ms while H ran
+  L running, 1500 ms of work done
+  L running, 1600 ms of work done
+  L running, 1700 ms of work done
+  L running, 1800 ms of work done
+  L running, 1900 ms of work done
+H cuts in at tick 2000: wake latency 7 us, L progress 1985 -> 1985 ms while H ran
+  L running, 2000 ms of work done
+  L running, 2100 ms of work done
+  L running, 2200 ms of work done
+  L running, 2300 ms of work done
+  L running, 2400 ms of work done
+H cuts in at tick 2500: wake latency 7 us, L progress 2481 -> 2481 ms while H ran
+  L running, 2500 ms of work done
+  L running, 2600 ms of work done
+  L running, 2700 ms of work done
+  L running, 2800 ms of work done
+  L running, 2900 ms of work done
+H cuts in at tick 3000: wake latency 7 us, L progress 2977 -> 2977 ms while H ran
+  L running, 3000 ms of work done
+  L running, 3100 ms of work done
+  L running, 3200 ms of work done
+  L running, 3300 ms of work done
+  L running, 3400 ms of work done
+H cuts in at tick 3500: wake latency 7 us, L progress 3473 -> 3473 ms while H ran
+  L running, 3500 ms of work done
+  L running, 3600 ms of work done
+  L running, 3700 ms of work done
+  L running, 3800 ms of work done
+  L running, 3900 ms of work done
+H cuts in at tick 4000: wake latency 7 us, L progress 3969 -> 3969 ms while H ran
+  L running, 4000 ms of work done
+  L running, 4100 ms of work done
+  L running, 4200 ms of work done
+  L running, 4300 ms of work done
+  L running, 4400 ms of work done
+H cuts in at tick 4500: wake latency 7 us, L progress 4465 -> 4465 ms while H ran
+  L running, 4500 ms of work done
+  L running, 4600 ms of work done
+  L running, 4700 ms of work done
+  L running, 4800 ms of work done
+  L running, 4900 ms of work done
+H cuts in at tick 5000: wake latency 7 us, L progress 4960 -> 4960 ms while H ran
+RESULT,ex01,preemptive,avg_wake_latency_us=7,max_wake_latency_us=7

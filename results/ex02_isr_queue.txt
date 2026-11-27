@@ -1,0 +1,7 @@
+ex02 ISR -> queue -> task: 1000 commands, one every 700 us, 200 us of work each
+phase yield-from-ISR: sent 1000, received 1000, dropped 0, out-of-order 0
+  ISR->task latency avg 11 us, max 11 us; CPU: handler 31%, idle 68%
+RESULT,ex02,yield,sent=1000,received=1000,dropped=0,order_errors=0,avg_latency_us=11,max_latency_us=11,handler_cpu_pct=31,idle_cpu_pct=68
+phase no-yield: sent 1000, received 1000, dropped 0, out-of-order 0
+  ISR->task latency avg 304 us, max 789 us; CPU: handler 31%, idle 68%
+RESULT,ex02,no_yield,sent=1000,received=1000,dropped=0,order_errors=0,avg_latency_us=304,max_latency_us=789,handler_cpu_pct=31,idle_cpu_pct=68

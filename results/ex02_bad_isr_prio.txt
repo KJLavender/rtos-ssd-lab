@@ -1,0 +1,3 @@
+ex02 ISR -> queue -> task: 1000 commands, one every 700 us, 200 us of work each
+
+ASSERT failed: third_party/FreeRTOS-Kernel/portable/GCC/ARM_CM3/port.c:803

@@ -1,0 +1,12 @@
+build/
+
+# Planning notes stay local
+PLAN.md
+PLANS.md
+plan.md
+*-plan.md
+*_plan.md
+plans/
+
+# Interview prep notes stay local
+prep/

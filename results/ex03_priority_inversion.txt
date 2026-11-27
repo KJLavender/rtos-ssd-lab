@@ -1,0 +1,56 @@
+ex03 priority inversion: L holds the lock 10 ms, M burns 50 ms, H needs the lock
+binary_semaphore round 1: H waited 58213 us for the lock
+binary_semaphore round 2: H waited 58191 us for the lock
+binary_semaphore round 3: H waited 58191 us for the lock
+binary_semaphore round 4: H waited 58191 us for the lock
+binary_semaphore round 5: H waited 58191 us for the lock
+RESULT,ex03,binary_semaphore,avg_h_wait_us=58195,min_h_wait_us=58191,max_h_wait_us=58213
+TR,binary_semaphore,1,CTRL,4
+TR,binary_semaphore,14,L,1
+TM,binary_semaphore,21,L,L takes lock
+TR,binary_semaphore,2000,CTRL,4
+TR,binary_semaphore,2013,H,3
+TM,binary_semaphore,2018,H,H wants lock
+TR,binary_semaphore,2036,L,1
+TR,binary_semaphore,3000,CTRL,4
+TR,binary_semaphore,3014,M,2
+TM,binary_semaphore,3019,M,M starts
+TM,binary_semaphore,53094,M,M done
+TR,binary_semaphore,53102,CTRL,4
+TR,binary_semaphore,53115,M,2
+TR,binary_semaphore,53126,L,1
+TM,binary_semaphore,60216,L,L gives lock
+TR,binary_semaphore,60226,H,3
+TM,binary_semaphore,60230,H,H got lock
+TR,binary_semaphore,61245,CTRL,4
+TR,binary_semaphore,61257,H,3
+TR,binary_semaphore,61268,L,1
+TR,binary_semaphore,61276,CTRL,4
+mutex round 1: H waited 8114 us for the lock
+mutex round 2: H waited 8092 us for the lock
+mutex round 3: H waited 8092 us for the lock
+mutex round 4: H waited 8092 us for the lock
+mutex round 5: H waited 8092 us for the lock
+RESULT,ex03,mutex,avg_h_wait_us=8096,min_h_wait_us=8092,max_h_wait_us=8114
+TR,mutex,1,CTRL,4
+TR,mutex,14,L,1
+TR,mutex,20,L,1
+TM,mutex,26,L,L takes lock
+TR,mutex,1998,CTRL,4
+TR,mutex,2012,H,3
+TM,mutex,2016,H,H wants lock
+TR,mutex,2038,L,3
+TR,mutex,2998,CTRL,4
+TR,mutex,3013,L,3
+TM,mutex,10113,L,L gives lock
+TR,mutex,10125,H,3
+TM,mutex,10130,H,H got lock
+TR,mutex,11145,CTRL,4
+TR,mutex,11157,H,3
+TR,mutex,11168,M,2
+TM,mutex,11173,M,M starts
+TM,mutex,61248,M,M done
+TR,mutex,61257,CTRL,4
+TR,mutex,61269,M,2
+TR,mutex,61280,L,1
+TR,mutex,61288,CTRL,4
